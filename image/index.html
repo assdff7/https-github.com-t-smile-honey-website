@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smile Honey</title>
+
+  <style>
+    /* ===== 共通設定 ===== */
+    body {
+      margin: 0;
+      font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    section {
+      width: 100%;
+    }
+
+    /* ===== 1枚目：Hero ===== */
+    .hero {
+      position: relative;
+      height: 100vh;
+      background-image: url("image/hero-bg.png");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      max-width: 600px;
+    }
+
+    /* ===== 2枚目：商品紹介 ===== */
+    .intro {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .intro-image,
+    .intro-text {
+      flex: 1;
+    }
+
+    .intro-text {
+      padding: 40px;
+      background: #f7d77a;
+    }
+
+    /* ===== 3枚目：コンセプト ===== */
+    .concept {
+      padding: 100px 20px;
+      text-align: center;
+      color: #fff;
+      background-image: url("image/concept-bg.png");
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* ===== 4枚目：商品・価格 ===== */
+    .product {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .product-image,
+    .product-info {
+      flex: 1;
+      padding: 40px;
+    }
+
+    .product-info {
+      background-image: url("image/price-bg.png");
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* ===== 5枚目：SHOP ===== */
+    .shop {
+      text-align: center;
+      padding: 100px 20px;
+      background-image: url("image/shop-bg.png");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .shop-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 16px 60px;
+      background: #9c4a13;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 16px;
+      font-size: 20px;
+    }
+
+    /* ===== スマホ対応 ===== */
+    @media (max-width: 768px) {
+      .intro,
+      .product {
+        flex-direction: column;
+      }
+
+      .hero {
+        height: 70vh;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 1枚目：Hero -->
+  <section class="hero">
+    <img
+      src="image/hero-title.png"
+      alt="Smile Honey メインタイトル"
+      class="hero-title">
+  </section>
+
+  <!-- 2枚目：商品紹介 -->
+  <section class="intro">
+    <div class="intro-image">
+      <img
+        src="image/product-photo.png"
+        alt="Smile Honey はちみつの商品写真">
+    </div>
+
+    <div class="intro-text">
+      <h2>Smile Honey</h2>
+      <p>口に入れた瞬間、笑顔になるような蜂蜜です。</p>
+    </div>
+  </section>
+
+  <!-- 3枚目：コンセプト -->
+  <section class="concept">
+    <h2>自然と人の手が育てた、<br>笑顔のはちみつ。</h2>
+    <p>
+      ミツバチと人が共に育てた、<br>
+      やさしい甘さをお届けします。
+    </p>
+  </section>
+
+  <!-- 4枚目：価格 -->
+  <section class="product">
+    <div class="product-image">
+      <img
+        src="image/product-jar.png"
+        alt="Smile Honey 瓶入り商品の写真">
+    </div>
+
+    <div class="product-info">
+      <h2>Smile Honey</h2>
+      <p>
+        税抜価格 2,500円<br>
+        （税込価格 2,750円）/100mL
+      </p>
+    </div>
+  </section>
+
+  <!-- 5枚目：SHOP -->
+  <section class="shop">
+    <h2>SHOP</h2>
+    <p>あなたの街の取扱店をご案内いたします。</p>
+    <p>※店舗により取扱状況が異なります。</p>
+
+    <a href="#" class="shop-button">SHOP</a>
+  </section>
+
+</body>
+</html>
