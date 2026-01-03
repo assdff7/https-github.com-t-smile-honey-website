@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Smile Honey</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    /* ========= 基本設定 ========= */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Noto Serif JP", serif;
+      color: #3b2a1a;
+      line-height: 1.8;
+      background: #fff;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ========= 共通 ========= */
+    .section {
+      width: 100%;
+      padding: 90px 20px;
+    }
+
+    .inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-weight: normal;
+      letter-spacing: 0.1em;
+    }
+
+    /* ========= フェードイン ========= */
+    .fade {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: 1s ease;
+    }
+
+    .fade.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========= HERO ========= */
+    .hero {
+      height: 100vh;
+      background: url("image/hero-bg.png") center / cover no-repeat;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero .inner {
+      position: relative;
+    }
+
+    .hero-title {
+      max-width: 620px;
+    }
+
+    /* ========= CONCEPT ========= */
+    .concept {
+      background: url("image/concept-bg.png") center / cover no-repeat;
+      text-align: center;
+    }
+
+    .concept p {
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+
+    /* ========= PRODUCT ========= */
+    .product {
+      background: url("image/price-bg.png") center / cover no-repeat;
+    }
+
+    .product-wrap {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .product-text {
+      background: rgba(255, 255, 255, 0.75);
+      padding: 35px;
+    }
+
+    /* ========= SHOP ========= */
+    .shop {
+      background: url("image/shop-bg.png") center / cover no-repeat;
+      text-align: center;
+    }
+
+    .shop-btn {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 18px 60px;
+      background: #a65216;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      border-radius: 12px;
+      letter-spacing: 0.2em;
+      transition: 0.3s;
+    }
+
+    .shop-btn:hover {
+      opacity: 0.85;
+    }
+
+    /* ========= スマホ ========= */
+    @media (max-width: 768px) {
+      .section {
+        padding: 70px 16px;
+      }
+
+      .hero {
+        height: 80vh;
+      }
+
+      .product-wrap {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <section class="hero section fade">
+    <div class="inner">
+      <img
+        src="image/hero-title.png"
+        alt="Smile Honey タイトルロゴ"
+        class="hero-title"
+      >
+    </div>
+  </section>
+
+  <!-- CONCEPT -->
+  <section class="concept section fade">
+    <div class="inner">
+      <p>
+        自然と人の手が育てた、<br>
+        笑顔のはちみつ。
+      </p>
+    </div>
+  </section>
+
+  <!-- PRODUCT -->
+  <section class="product section fade">
+    <div class="inner product-wrap">
+      <img
+        src="image/product-jar.png"
+        alt="Smile Honey はちみつ商品"
+      >
+      <div class="product-text">
+        <h2>Smile Honey</h2>
+        <p>
+          口に入れた瞬間、<br>
+          思わず笑顔になるような蜂蜜です。
+        </p>
+        <p>
+          税抜価格 2,500円<br>
+          （税込価格 2,750円）/100mL
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOP -->
+  <section class="shop section fade">
+    <div class="inner">
+      <h2>SHOP</h2>
+      <p>
+        あなたの街の取扱店をご案内いたします。<br>
+        ※店舗により取扱状況が異なります。
+      </p>
+      <a href="#" class="shop-btn">SHOP</a>
+    </div>
+  </section>
+
+  <!-- フェードイン用JS -->
+  <script>
+    const targets = document.querySelectorAll(".fade");
+
+    function fadeIn() {
+      targets.forEach(target => {
+        const rect = target.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          target.classList.add("show");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", fadeIn);
+    window.addEventListener("load", fadeIn);
+  </script>
+
+</body>
+</html>
