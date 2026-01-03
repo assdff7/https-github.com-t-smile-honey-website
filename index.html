@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Smile Honey</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Noto Serif JP", serif;
+      line-height: 2;
+      font-size: 18px;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      height: auto;
+    }
+
+    .section {
+      min-height: 100vh;
+      padding: 100px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .fade {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: 1.2s ease;
+    }
+
+    .fade.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: url("image/hero-bg.png") center / cover no-repeat;
+    }
+
+    .hero-title {
+      width: 140%;
+      max-width: 3200px;
+      margin: 0 auto;
+    }
+
+    /* ===== THANK YOU ===== */
+    .thanks {
+      background: url("image/product-photo.png") center / cover no-repeat;
+      color: #fff;
+    }
+
+    .thanks-box {
+      background: rgba(0,0,0,0.35);
+      padding: 70px 40px;
+      max-width: 900px;
+    }
+
+    .thanks-box h2 {
+      font-size: 2.6rem;
+      letter-spacing: 0.25em;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .thanks-title {
+      font-size: 1.8rem;
+      letter-spacing: 0.2em;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .thanks-subtitle {
+      font-size: 1.2rem;
+      letter-spacing: 0.15em;
+      margin-bottom: 40px;
+    }
+
+    .thanks-text {
+      font-size: 1.2rem;
+      line-height: 2.2;
+    }
+
+    /* ===== CONCEPT ===== */
+    .concept {
+      background: url("image/concept-bg.png") center / cover no-repeat;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .concept-inner {
+      background: rgba(0,0,0,0.35);
+      padding: 80px 40px;
+      max-width: 900px;
+    }
+
+    .concept h2 {
+      font-size: 3rem;
+      letter-spacing: 0.2em;
+      margin-bottom: 50px;
+    }
+
+    .concept p {
+      font-size: 1.5rem;
+      line-height: 2.4;
+    }
+
+    /* ===== PRODUCT ===== */
+    .product {
+      background: url("image/price-bg.png") center / cover no-repeat;
+    }
+
+    .product-wrap {
+      display: flex;
+      gap: 70px;
+      align-items: center;
+      justify-content: center;
+      text-align: left;
+    }
+
+    .product-text {
+      background: rgba(255,255,255,0.85);
+      padding: 40px;
+    }
+
+    /* ===== SHOP ===== */
+    .shop {
+      background: url("image/shop-bg.png") center / cover no-repeat;
+    }
+
+    .shop-btn {
+      margin-top: 50px;
+      display: inline-block;
+      padding: 22px 70px;
+      background: #a65216;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.3rem;
+      letter-spacing: 0.25em;
+      border-radius: 14px;
+    }
+
+    @media (max-width: 768px) {
+      body { font-size: 16px; }
+      .hero-title { width: 100%; }
+      .product-wrap {
+        flex-direction: column;
+        text-align: center;
+      }
+      .concept h2 {
+        font-size: 2.2rem;
+      }
+      .concept p {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <section class="section hero fade">
+    <img src="image/hero-title.png" alt="Smile Honey タイトル" class="hero-title">
+  </section>
+
+  <!-- THANK YOU -->
+  <section class="section thanks fade">
+    <div class="thanks-box">
+      <h2>THANK YOU FOR COMING</h2>
+
+      <div class="thanks-title">SMILE HONEY</div>
+      <div class="thanks-subtitle">Project for bee MANA inc</div>
+
+      <div class="thanks-text">
+        MANA INCから新しいはちみつが登場しました。<br>
+        その名も、「SMILE HONEY」笑顔のはちみつ
+      </div>
+    </div>
+  </section>
+
+  <!-- CONCEPT -->
+  <section class="section concept fade">
+    <div class="concept-inner">
+      <h2>
+        自然と人の手が育てた、<br>
+        笑顔のはちみつ。
+      </h2>
+
+      <p>
+        山の花々から集めた蜜を、<br>
+        できるだけ手を加えずにそのまま瓶詰めしました。<br><br>
+
+        ビタミンやミネラルを豊富に含んでいるため、<br>
+        疲れを癒す自然の力が詰まっています。<br><br>
+
+        毎日がんばるあなたに、<br>
+        ほっと笑顔になれる甘さを。
+      </p>
+    </div>
+  </section>
+
+  <!-- PRODUCT -->
+  <section class="section product fade">
+    <div class="product-wrap">
+      <img src="image/product-jar.png" alt="Smile Honey 商品">
+      <div class="product-text">
+        <h2>Smile Honey</h2>
+        <p>
+          税抜 2,500円<br>
+          （税込 2,750円）/100mL
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOP -->
+  <section class="section shop fade">
+    <div>
+      <h2>SHOP</h2>
+      <p>あなたの街の取扱店をご案内します。</p>
+      <a href="#" class="shop-btn">SHOP</a>
+    </div>
+  </section>
+
+  <script>
+    const targets = document.querySelectorAll(".fade");
+    function onScroll() {
+      targets.forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+          el.classList.add("show");
+        }
+      });
+    }
+    window.addEventListener("scroll", onScroll);
+    window.addEventListener("load", onScroll);
+  </script>
+
+</body>
+</html>
