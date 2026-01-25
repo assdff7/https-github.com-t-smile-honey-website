@@ -285,13 +285,19 @@ async function sendReserve() {
 
   const data = await response.json();
   console.log("予約結果:", data);
+
+  // ★ FastAPI が success を返したら完了ページへ
+  if (data.success) {
+    window.location.href = "complete.html";
+  }
 }
-  window.onload = loadStock;
+
 </script>
 
 
 </body>
 </html>
+
 
 
 
