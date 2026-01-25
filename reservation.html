@@ -216,17 +216,22 @@
     <input id="product" type="text" value="Smile Honey" readonly>
   </div>
 
-  <div class="form-row">
-    <div class="form-group" style="flex:1;">
-      <label>数量 <span>（必須）</span></label>
-      <input id="quantity" type="number" min="1" value="1" required>
-    </div>
+ <div class="form-row">
+  <div class="form-group" style="flex:1;">
+    <label>数量 <span>（必須）</span></label>
 
-    <div class="form-group" style="flex:1;">
-      <label>お届け日 <span>（必須）</span></label>
-      <input id="delivery_date" type="date" required>
-    </div>
+    <!-- ★ 在庫表示をここに追加！ -->
+    <div id="stock_display" style="margin-bottom: 6px; color:#555;">在庫：-</div>
+
+    <input id="quantity" type="number" min="1" value="1" required>
   </div>
+
+  <div class="form-group" style="flex:1;">
+    <label>お届け日 <span>（必須）</span></label>
+    <input id="delivery_date" type="date" required>
+  </div>
+</div>
+
 
   <div class="form-group">
     <label>お支払い方法 <span>（必須）</span></label>
@@ -255,7 +260,7 @@
 
   </div>
 <script>
-const API_BASE = "https://knights-proceed-constitutes-potentially.trycloudflare.com";
+const API_BASE = "https://legendary-one-nomination-rice.trycloudflare.com";
 
 // 空き枠取得
 function loadSlots(date) {
@@ -281,11 +286,13 @@ async function sendReserve() {
   const data = await response.json();
   console.log("予約結果:", data);
 }
+window.onload = loadStock;
 </script>
 
 
 </body>
 </html>
+
 
 
 
