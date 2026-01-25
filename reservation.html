@@ -236,15 +236,14 @@
   <div class="form-group">
   <label>お支払い方法 <span>（必須）</span></label>
   <select id="payment_method" required>
-    <option value="">お支払い方法を選択してください</option>
-    <option value="bank">銀行振込</option>
-    <option value="cod">代金引換</option>
-  </select>
+  <option value="">お支払い方法を選択してください</option>
+  <option value="bank">銀行振込</option>
+  <option value="cod">代金引換</option>
+  <option value="card">クレジットカード</option> <!-- ★追加 -->
+</select>
 
-  <!-- 最初に表示される案内 -->
-  <div id="payment_default" style="margin-top: 12px; padding: 12px; background: #f5f5f5; border-radius: 10px; border: 1px solid #ddd;">
-    <p>お支払い方法を選んでください。</p>
-  </div>
+
+  
 
   <!-- 銀行振込 -->
   <div id="bank_info" style="display:none; margin-top: 12px; padding: 12px; background: #fff8e6; border-radius: 10px; border: 1px solid #f0d9a6;">
@@ -252,7 +251,7 @@
     <p>振込先銀行：みずほ銀行 渋谷支店</p>
     <p>口座種別：普通</p>
     <p>口座番号：1234567</p>
-    <p>口座名義：ヒーローマナ（力）</p>
+    <p>口座名義：ヒーローマナ</p>
     <p style="margin-top:8px; font-size:14px;">※ ご注文後3日以内にお振込みください</p>
   </div>
 
@@ -262,7 +261,23 @@
     <p>商品お届け時に配達員へ代金をお支払いください。</p>
     <p>代引き手数料：￥330（税込）</p>
   </div>
+    <div id="card_info" style="display:none; margin-top: 12px; padding: 12px; background: #fff0f5; border-radius: 10px; border: 1px solid #f5b6c8;">
+  <p><strong>クレジットカード情報</strong></p>
+
+  <label>カード番号 *</label>
+  <input type="text" placeholder="1234 5678 9012 3456" style="width:100%; margin-bottom:8px;">
+
+  <label>有効期限 *</label>
+  <input type="text" placeholder="MM/YY" style="width:100%; margin-bottom:8px;">
+
+  <label>セキュリティコード *</label>
+  <input type="text" placeholder="123" style="width:100%; margin-bottom:8px;">
+
+  <label>カード名義人 *</label>
+  <input type="text" placeholder="TARO YAMADA" style="width:100%;">
 </div>
+
+
 
 
 
@@ -345,19 +360,31 @@ async function sendReserve() {
 document.querySelector("#payment_method").addEventListener("change", function() {
   const bankInfo = document.querySelector("#bank_info");
   const codInfo = document.querySelector("#cod_info");
+  const cardInfo = document.querySelector("#card_info");
   const defaultInfo = document.querySelector("#payment_default");
 
   if (this.value === "bank") {
     bankInfo.style.display = "block";
     codInfo.style.display = "none";
+    cardInfo.style.display = "none";
     defaultInfo.style.display = "none";
+
   } else if (this.value === "cod") {
     bankInfo.style.display = "none";
     codInfo.style.display = "block";
+    cardInfo.style.display = "none";
     defaultInfo.style.display = "none";
+
+  } else if (this.value === "card") {
+    bankInfo.style.display = "none";
+    codInfo.style.display = "none";
+    cardInfo.style.display = "block";
+    defaultInfo.style.display = "none";
+
   } else {
     bankInfo.style.display = "none";
     codInfo.style.display = "none";
+    cardInfo.style.display = "none";
     defaultInfo.style.display = "block";
   }
 });
@@ -370,6 +397,7 @@ document.querySelector("#payment_method").addEventListener("change", function() 
 
 </body>
 </html>
+
 
 
 
