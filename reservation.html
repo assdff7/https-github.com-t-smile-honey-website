@@ -273,28 +273,36 @@ function loadSlots(date) {
 
 // 予約送信
 async function sendReserve() {
-  // 入力値を取得
   const name = document.querySelector("#name").value.trim();
   const email = document.querySelector("#email").value.trim();
   const phone = document.querySelector("#phone").value.trim();
   const quantity = document.querySelector("#quantity").value.trim();
   const date = document.querySelector("#delivery_date").value.trim();
   const payment = document.querySelector("#payment_method").value.trim();
+  const note = document.querySelector("#note").value.trim(); // ★追加
 
-  // ★ 必須チェック（1つでも空なら止める）
+  // 必須チェック
   if (!name || !email || !phone || !quantity || !date || !payment) {
     alert("必須項目が入力されていません。すべて入力してください。");
     return;
   }
 
-  // 時間は固定
   const time = "10:00";
 
   try {
     const response = await fetch(`${API_BASE}/api/reserve`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, phone, quantity, date, time, payment })
+      body: JSON.stringify({
+        name,
+        email,
+        phone,
+        quantity,
+        date,
+        time,
+        payment,
+        note // ★追加
+      })
     });
 
     const data = await response.json();
@@ -307,12 +315,14 @@ async function sendReserve() {
     console.log("送信エラー:", e);
   }
 }
+
 </script>
 
 
 
 </body>
 </html>
+
 
 
 
