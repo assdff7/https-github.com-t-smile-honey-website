@@ -236,11 +236,17 @@
   <div class="form-group">
   <label>お支払い方法 <span>（必須）</span></label>
   <select id="payment_method" required>
+    <option value="">お支払い方法を選択してください</option>
     <option value="bank">銀行振込</option>
     <option value="cod">代金引換</option>
   </select>
 
-  <!-- ★ select の外に置く！ -->
+  <!-- 最初に表示される案内 -->
+  <div id="payment_default" style="margin-top: 12px; padding: 12px; background: #f5f5f5; border-radius: 10px; border: 1px solid #ddd;">
+    <p>お支払い方法を選んでください。</p>
+  </div>
+
+  <!-- 銀行振込 -->
   <div id="bank_info" style="display:none; margin-top: 12px; padding: 12px; background: #fff8e6; border-radius: 10px; border: 1px solid #f0d9a6;">
     <p><strong>銀行振込情報</strong></p>
     <p>振込先銀行：みずほ銀行 渋谷支店</p>
@@ -249,14 +255,15 @@
     <p>口座名義：ヒーローマナ（力）</p>
     <p style="margin-top:8px; font-size:14px;">※ ご注文後3日以内にお振込みください</p>
   </div>
-    <div id="cod_info" style="display:none; margin-top: 12px; padding: 12px; background: #eef7ff; border-radius: 10px; border: 1px solid #bcd7f0;">
-  <p><strong>代金引換</strong></p>
-  <p>商品お届け時に配達員へ代金をお支払いください。</p>
-  <p>代引き手数料：￥330（税込）</p>
+
+  <!-- 代金引換 -->
+  <div id="cod_info" style="display:none; margin-top: 12px; padding: 12px; background: #eef7ff; border-radius: 10px; border: 1px solid #bcd7f0;">
+    <p><strong>代金引換</strong></p>
+    <p>商品お届け時に配達員へ代金をお支払いください。</p>
+    <p>代引き手数料：￥330（税込）</p>
+  </div>
 </div>
-<div id="payment_default" style="margin-top: 12px; padding: 12px; background: #f5f5f5; border-radius: 10px; border: 1px solid #ddd;">
-  <p>お支払い方法を選んでください。</p>
-</div>
+
 
 
 
@@ -363,6 +370,7 @@ document.querySelector("#payment_method").addEventListener("change", function() 
 
 </body>
 </html>
+
 
 
 
