@@ -249,6 +249,12 @@
     <p>口座名義：ヒーローマナ（力）</p>
     <p style="margin-top:8px; font-size:14px;">※ ご注文後3日以内にお振込みください</p>
   </div>
+    <div id="cod_info" style="display:none; margin-top: 12px; padding: 12px; background: #eef7ff; border-radius: 10px; border: 1px solid #bcd7f0;">
+  <p><strong>代金引換</strong></p>
+  <p>商品お届け時に配達員へ代金をお支払いください。</p>
+  <p>代引き手数料：￥330（税込）</p>
+</div>
+
 </div>
 
 
@@ -328,13 +334,20 @@ async function sendReserve() {
 }
 document.querySelector("#payment_method").addEventListener("change", function() {
   const bankInfo = document.querySelector("#bank_info");
+  const codInfo = document.querySelector("#cod_info");
 
   if (this.value === "bank") {
     bankInfo.style.display = "block";
+    codInfo.style.display = "none";
+  } else if (this.value === "cod") {
+    bankInfo.style.display = "none";
+    codInfo.style.display = "block";
   } else {
     bankInfo.style.display = "none";
+    codInfo.style.display = "none";
   }
 });
+
 
 </script>
 
@@ -342,6 +355,7 @@ document.querySelector("#payment_method").addEventListener("change", function() 
 
 </body>
 </html>
+
 
 
 
