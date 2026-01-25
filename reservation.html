@@ -234,12 +234,23 @@
 
 
   <div class="form-group">
-    <label>お支払い方法 <span>（必須）</span></label>
-    <select id="payment_method" required>
-      <option value="bank">銀行振込</option>
-      <option value="cod">代金引換</option>
-    </select>
+  <label>お支払い方法 <span>（必須）</span></label>
+  <select id="payment_method" required>
+    <option value="bank">銀行振込</option>
+    <option value="cod">代金引換</option>
+  </select>
+
+  <!-- ★ select の外に置く！ -->
+  <div id="bank_info" style="display:none; margin-top: 12px; padding: 12px; background: #fff8e6; border-radius: 10px; border: 1px solid #f0d9a6;">
+    <p><strong>銀行振込情報</strong></p>
+    <p>振込先銀行：みずほ銀行 渋谷支店</p>
+    <p>口座種別：普通</p>
+    <p>口座番号：1234567</p>
+    <p>口座名義：ヒーローマナ（力）</p>
+    <p style="margin-top:8px; font-size:14px;">※ ご注文後3日以内にお振込みください</p>
   </div>
+</div>
+
 
   <div class="form-group">
     <label>備考欄</label>
@@ -315,6 +326,15 @@ async function sendReserve() {
     console.log("送信エラー:", e);
   }
 }
+document.querySelector("#payment_method").addEventListener("change", function() {
+  const bankInfo = document.querySelector("#bank_info");
+
+  if (this.value === "bank") {
+    bankInfo.style.display = "block";
+  } else {
+    bankInfo.style.display = "none";
+  }
+});
 
 </script>
 
@@ -322,6 +342,7 @@ async function sendReserve() {
 
 </body>
 </html>
+
 
 
 
