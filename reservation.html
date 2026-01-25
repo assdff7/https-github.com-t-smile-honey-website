@@ -273,33 +273,47 @@ function loadSlots(date) {
 
 // 予約送信
 async function sendReserve() {
-  const name = document.querySelector("#name").value;
-  const date = document.querySelector("#delivery_date").value;
-  const time = "10:00"; // ← 時間を選ぶ UI ができたらここを書き換える
+  // 入力値を取得
+  const name = document.querySelector("#name").value.trim();
+  const email = document.querySelector("#email").value.trim();
+  const phone = document.querySelector("#phone").value.trim();
+  const quantity = document.querySelector("#quantity").value.trim();
+  const date = document.querySelector("#delivery_date").value.trim();
+  const payment = document.querySelector("#payment_method").value.trim();
 
-  const response = await fetch(`${API_BASE}/api/reserve`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, date, time })
-  });
+  // ★ 必須チェック（1つでも空なら止める）
+  if (!name || !email || !phone || !quantity || !date || !payment) {
+    alert("必須項目が入力されていません。すべて入力してください。");
+    return;
+  }
 
-  const data = await response.json();
-  console.log("予約結果:", data);
+  // 時間は固定
+  const time = "10:00";
 
-  // ★ FastAPI が success を返したら完了ページへ
- if (data.success) {
-  window.location.href = "/https-github.com-t-smile-honey-website/complete.html";
+  try {
+    const response = await fetch(`${API_BASE}/api/reserve`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, phone, quantity, date, time, payment })
+    });
 
+    const data = await response.json();
+    console.log("予約結果:", data);
+
+    if (data.success) {
+      window.location.href = "/https-github.com-t-smile-honey-website/complete.html";
+    }
+  } catch (e) {
+    console.log("送信エラー:", e);
+  }
 }
-
-
-}
-
 </script>
+
 
 
 </body>
 </html>
+
 
 
 
